@@ -10,9 +10,19 @@ import java.net.URLDecoder;
 @RestController
 public class DempController {
 
-    @RequestMapping(value = "/hello",method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
+    @RequestMapping(value = "/getMsg",method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
     @ResponseBody
-    public String index(@RequestParam("param") String param) throws UnsupportedEncodingException {
+    public String getMsg(@RequestParam("param") String param) throws UnsupportedEncodingException {
+
+        String newParam = URLDecoder.decode(param,"utf-8");
+        String handleMsg = "后台处理后数据:";
+        String result = handleMsg + newParam;
+        return result;
+    }
+
+    @RequestMapping(value = "/postMsg",method = RequestMethod.POST,produces = "text/plain;charset=UTF-8")
+    @ResponseBody
+    public String postMsg(@RequestParam("param") String param) throws UnsupportedEncodingException {
 
         String newParam = URLDecoder.decode(param,"utf-8");
         String handleMsg = "后台处理后数据:";
