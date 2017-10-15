@@ -23,7 +23,10 @@ function postMsg() {
         dataType:"json",
         type:"POST",
         success:function(result){
-            $("#after").val(result);
+            console.log(result);
+            $("#after").val(result.result);
+        },
+        error:function(){
         }
     });
 }
