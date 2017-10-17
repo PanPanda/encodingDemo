@@ -16,10 +16,13 @@ function get() {
 
 function postMsg() {
     var param = $("#before").html();
+
     $.ajax({
         url:"/postMsg",
-        contentType:"application/x-www-form-urlencoded; charset=utf-8",
-        data:{"param":param},
+        //contentType:"application/json; charset=utf-8",
+        data:{
+            "param":param
+        },
         dataType:"json",
         type:"POST",
         success:function(result){
